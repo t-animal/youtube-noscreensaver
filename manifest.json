@@ -1,0 +1,20 @@
+{
+  "name": "Youtube-Noscreensaver",
+  "version": "1.0",
+  "description": "Disables XScreensaver while Youtube is in fullscreen mode",
+  "manifest_version": 2,
+  "permissions": [
+    "*://www.youtube.com/*",
+    "nativeMessaging"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["message-relay.js"],
+    "persistent": false
+  }
+}
