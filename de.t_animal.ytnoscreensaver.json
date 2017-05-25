@@ -1,7 +1,7 @@
 {
   "name": "de.t_animal.ytnoscreensaver",
   "description": "Disables XScreensaver while Youtube is in fullscreen mode",
-  "path": "xscreensaver-keep-alive-ping",
+  "path": "/path/to/script/xscreensaver-keep-alive-ping",
   "type": "stdio",
   "allowed_origins": [
     "chrome-extension://egndcglpfhlmpkcpgmonjmbgphjmmffj/"

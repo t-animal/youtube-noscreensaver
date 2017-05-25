@@ -9,7 +9,7 @@ It uses a native messaging host, so some additional manual installation is neces
 2. Download [de.t_animal.ytnoscreensaver.json](https://raw.githubusercontent.com/t-animal/youtube-noscreensaver/master/de.t_animal.ytnoscreensaver.json)
    to .config/chromium/NativeMessagingHosts/ (or .config/chrome/... if using chrome)
 3. Download [xscreensaver-keep-alive-ping](https://raw.githubusercontent.com/t-animal/youtube-noscreensaver/master/xscreensaver-keep-alive-ping)
-   and put it on your PATH
+   and put its path into the json downloaded previously
 
 Here is an example script which does step 2 and 3, to help you get started (Change to your needs, don't just copy this!):
 
@@ -26,5 +26,5 @@ curl $hostURL > ~/.config/$browser/NativeMessagingHosts/de.t_animal.ytnoscreensa
 mkdir -p ~/bin
 curl $nativeURL > ~/bin/xscreensaver-keep-alive-ping
 cmod +x ~/bin/xscreensaver-keep-alive-ping
-echo 'export PATH="$HOME/bin:$PATH"' >> ~/.profile
+sed -i s,/path/to/script/,~/bin/, ~/.config/$browser/NativeMessagingHosts/de.t_animal.ytnoscreensaver.json
 ```
