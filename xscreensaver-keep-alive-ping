@@ -1,4 +1,5 @@
 #!/bin/bash
 
+# uncomment the next line if you have xfce4-notifyd and want to check if this file is actually executed
 # notify-send deactivating xscreensaver
 xscreensaver-command --deactivate

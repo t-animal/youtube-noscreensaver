@@ -2,12 +2,14 @@
 
 window.addEventListener("webkitfullscreenchange", fullScreenHandler)
 
+/* Called when fullscreen is enabled or disabled, tracks fullscreen state*/
 var isFullScreen = false;
 function fullScreenHandler(){
 	isFullScreen = !isFullScreen;
 	sendPings();
 }
 
+/* Checks every 5 seconds if we are still in fullscreen mode and triggers a keepAlivePing */
 var pingHandle = null;
 function sendPings(){
 	if(isFullScreen){
@@ -24,6 +26,8 @@ function sendPings(){
 	}
 }
 
+/* Inserts a short notice that XScreensaver will be disabled into the website. Fades in and fades out again
+*/
 function insertNotice(){
 	var outerDiv = document.createElement("div");
 	outerDiv.style.cssText = "position:fixed; bottom: 80px; width:100%; text-align:center; z-index:99999999999; display:block !important";
@@ -41,6 +45,9 @@ function insertNotice(){
 	window.setTimeout(function(){document.body.removeChild(outerDiv);}, 2500);
 }
 
+/* Sends a message to the background-script in `message-relay.js`, which in turn sends a message to the native
+   application, which simply calls `xscreensaver-command --deactivate`
+*/
 function keepAlivePing(){
 	chrome.runtime.sendMessage({requestPing: true});
 }

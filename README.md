@@ -14,7 +14,7 @@ It uses a native messaging host, so some additional manual installation is neces
 Here is an example script which does step 2 and 3, to help you get started (Change to your needs, don't just copy this!):
 
 ```bash
-#select if you have chrome or chromium
+#select whether you have chrome or chromium
 browser=chromium
 #browser=chrome
 
